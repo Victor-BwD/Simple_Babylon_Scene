@@ -5,6 +5,9 @@ import './App.css';
 
 let box;
 
+const GROUND_SIZE = 8;
+const BOXES_SIZE = 2;
+
 const onSceneReady = scene => {
   // This creates and positions a free camera (non-mesh)
   var camera = new FreeCamera("camera1", new Vector3(0, 5, -10), scene);
@@ -24,13 +27,13 @@ const onSceneReady = scene => {
   light.intensity = 0.7;
 
   // Our built-in 'box' shape.
-  box = MeshBuilder.CreateBox("box", {size: 2}, scene);
+  box = MeshBuilder.CreateBox("box", {size: BOXES_SIZE}, scene);
 
   // Move the box upward 1/2 its height
   box.position.y = 1;
 
   // Our built-in 'ground' shape.
-  MeshBuilder.CreateGround("ground", {width: 12, height: 12}, scene);
+  MeshBuilder.CreateGround("ground", {width: GROUND_SIZE, height: GROUND_SIZE}, scene);
 }
 
 /**
