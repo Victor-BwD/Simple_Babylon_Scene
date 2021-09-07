@@ -8,17 +8,27 @@ let box;
 const GROUND_SIZE = 8;
 const BOXES_SIZE = 2;
 
+function Movement(camera){
+  camera.keysUp.push(87);
+  camera.keysLeft.push(65);
+  camera.keysDown.push(83);
+  camera.keysRight.push(68);
+}
+
 const onSceneReady = scene => {
   // This creates and positions a free camera (non-mesh)
   var camera = new FreeCamera("camera1", new Vector3(0, 5, -10), scene);
 
   // This targets the camera to scene origin
   camera.setTarget(Vector3.Zero());
+  
 
   const canvas = scene.getEngine().getRenderingCanvas();
 
   // This attaches the camera to the canvas
   camera.attachControl(canvas, true);
+
+  Movement(camera);
 
   // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
   var light = new HemisphericLight("light", new Vector3(0, 1, 0), scene);
